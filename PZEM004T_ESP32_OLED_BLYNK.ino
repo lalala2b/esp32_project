@@ -59,6 +59,7 @@ void loop() {
     Blynk.run();
     timer.run();
 
+    display.clearDisplay();
     display.setCursor(0, 0);
     display.clearDisplay();
     display.setTextSize(1);
