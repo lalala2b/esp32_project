@@ -7,7 +7,7 @@
 #include <LiquidCrystal.h>
 
 
-//menggunakan lcd
+// lcd tanpa I2C
 LiquidCrystal lcd(2,4,15,5,18,19);
 #define DHT_PIN 23
 DHTesp dht;
@@ -19,8 +19,8 @@ float incomingTemp;
 float incomingHum;
 
 String success;
-// gunakan address esp32
-uint8_t broadcastAddress[] = {0x94,0xB9,0x7E,0xC4,0xDE,0xD4};
+// gunakan address esp32 tujuan
+uint8_t broadcastAddress[] = {0xFF,0xFF,0xFF,0xFF,0xFF,0xFF};
 
 typedef struct struct_message{
   float temp;
@@ -107,6 +107,8 @@ void updateDisplay(){
   lcd.print("Temp: "+String(incomingTemp)+"C");
   lcd.setCursor(0,3);
   lcd.print("Hum: "+String(incomingHum)+"%");
+
+// Menampilkan di serial monitor
   Serial.println("Temp: "+String(incomingTemp)+"C");
   Serial.println("Hum: "+String(incomingHum)+"%");
 }
