@@ -44,6 +44,7 @@ BLYNK_CONNECTED(){
   Blynk.syncVirtual(virtual1);
   Blynk.syncVirtual(virtual2);
   Blynk.syncVirtual(virtual3);
+  Blynk.syncVirtual(virtual4);
 }
 BLYNK_WRITE(virtual0){
   int tempstate=param.asInt();
